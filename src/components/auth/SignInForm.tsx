@@ -6,10 +6,31 @@ import Button from "@/components/ui/button/Button";
 import { ChevronLeftIcon, EyeCloseIcon, EyeIcon } from "@/icons";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { createAuthCookie } from "@/helpers/auth.helper";
+import { LoginFormType } from "@/helpers/types";
 
 export default function SignInForm() {
+  const initialValues: LoginFormType = {
+    email: "admin@tln.id",
+    password: "admin@123",
+  };
+
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [email, setEmail] = useState(initialValues.email);
+  const [password, setPassword] = useState(initialValues.password);
+  const router = useRouter();
+
+  const handleSignIn = async () => {
+    if (email === initialValues.email && password === initialValues.password) {
+      await createAuthCookie();
+      router.push("/profile");
+    } else {
+      alert("Invalid email or password");
+    }
+  };
+
   return (
     <div className="flex flex-col flex-1 lg:w-1/2 w-full">
       <div className="w-full max-w-md sm:pt-10 mx-auto mb-5">
@@ -90,7 +111,15 @@ export default function SignInForm() {
                   <Label>
                     Email <span className="text-error-500">*</span>{" "}
                   </Label>
-                  <Input placeholder="info@gmail.com" type="email" />
+                  <Input
+                    placeholder="info@gmail.com"
+                    defaultValue={initialValues.email}
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
                 </div>
                 <div>
                   <Label>
@@ -100,6 +129,11 @@ export default function SignInForm() {
                     <Input
                       type={showPassword ? "text" : "password"}
                       placeholder="Enter your password"
+                      defaultValue={initialValues.password}
+                      value={password}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
                     />
                     <span
                       onClick={() => setShowPassword(!showPassword)}
@@ -128,7 +162,12 @@ export default function SignInForm() {
                   </Link>
                 </div>
                 <div>
-                  <Button className="w-full" size="sm">
+                  <Button
+                    className="w-full"
+                    size="sm"
+                    type="button"
+                    onClick={handleSignIn}
+                  >
                     Sign in
                   </Button>
                 </div>

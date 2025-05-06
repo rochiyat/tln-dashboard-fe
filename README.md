@@ -87,14 +87,6 @@ All components are built with React and styled using Tailwind CSS for easy custo
 - Basic Figma design files
 - Community support
 
-### Pro Version
-- 5 Unique Dashboards: Analytics, Ecommerce, Marketing, CRM, Stocks (more coming soon)
-- 400+ dashboard components and UI elements
-- Complete Figma design file
-- Email support
-
-To learn more about pro version features and pricing, visit our [pricing page](https://tailadmin.com/pricing).
-
 ## Changelog
 
 ### Version 2.0.2 - [March 25, 2025]
@@ -102,8 +94,6 @@ To learn more about pro version features and pricing, visit our [pricing page](h
 - Upgraded to Next v15.2.3 for [CVE-2025-29927](https://nextjs.org/blog/cve-2025-29927) concerns
 - Included overrides vectormap for packages to prevent peer dependency errors during installation.
 - Migrated from react-flatpickr to flatpickr package for React 19 support
-
-### Version 2.0.1 - [February 27, 2025]
 
 #### Update Overview
 
