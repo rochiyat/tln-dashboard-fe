@@ -5,19 +5,22 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "../context/SidebarContext";
 import {
-  BoxCubeIcon,
-  CalenderIcon,
+  // BoxCubeIcon,
+  // CalenderIcon,
   ChevronDownIcon,
   GridIcon,
   HorizontaLDots,
-  ListIcon,
-  PageIcon,
-  PieChartIcon,
-  PlugInIcon,
+  // ListIcon,
+  // PageIcon,
+  // PieChartIcon,
+  // PlugInIcon,
   TableIcon,
+  TaskIcon,
   UserCircleIcon,
+  ChatIcon,
+  ShootingStarIcon,
+  // UserCircleIcon,
 } from "../icons/index";
-import SidebarWidget from "./SidebarWidget";
 
 type NavItem = {
   name: string;
@@ -32,6 +35,22 @@ const navItems: NavItem[] = [
     name: "Dashboard",
     subItems: [{ name: "Monthly Users", path: "/" }],
   },
+  {
+    icon: <UserCircleIcon />,
+    name: "Users",
+    path: "/profile",
+  },
+  {
+    icon: <TableIcon />,
+    name: "User CVs",
+    path: "/basic-tables",
+  },
+  {
+    icon: <ShootingStarIcon />,
+    name: "Taaruf Request",
+    path: "/avatars",
+  },
+  /*
   {
     icon: <CalenderIcon />,
     name: "Calendar",
@@ -61,9 +80,21 @@ const navItems: NavItem[] = [
       { name: "404 Error", path: "/error-404", pro: false },
     ],
   },
+  */
 ];
 
 const othersItems: NavItem[] = [
+  {
+    icon: <TaskIcon />,
+    name: "Badge",
+    path: "/alerts",
+  },
+  {
+    icon: <ChatIcon />,
+    name: "Point Transaction",
+    path: "/line-chart",
+  },
+  /*
   {
     icon: <PieChartIcon />,
     name: "Charts",
@@ -92,6 +123,7 @@ const othersItems: NavItem[] = [
       { name: "Sign Up", path: "/signup", pro: false },
     ],
   },
+  */
 ];
 
 const AppSidebar: React.FC = () => {
@@ -348,7 +380,7 @@ const AppSidebar: React.FC = () => {
                 }`}
               >
                 {isExpanded || isHovered || isMobileOpen ? (
-                  "Menu"
+                  "Report"
                 ) : (
                   <HorizontaLDots />
                 )}
@@ -365,7 +397,7 @@ const AppSidebar: React.FC = () => {
                 }`}
               >
                 {isExpanded || isHovered || isMobileOpen ? (
-                  "Others"
+                  "Master Data"
                 ) : (
                   <HorizontaLDots />
                 )}
@@ -374,7 +406,6 @@ const AppSidebar: React.FC = () => {
             </div>
           </div>
         </nav>
-        {isExpanded || isHovered || isMobileOpen ? <SidebarWidget /> : null}
       </div>
     </aside>
   );
