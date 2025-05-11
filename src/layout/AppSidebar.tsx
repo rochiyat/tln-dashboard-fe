@@ -5,21 +5,16 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "../context/SidebarContext";
 import {
-  // BoxCubeIcon,
-  // CalenderIcon,
   ChevronDownIcon,
   GridIcon,
   HorizontaLDots,
-  // ListIcon,
-  // PageIcon,
-  // PieChartIcon,
-  // PlugInIcon,
-  TableIcon,
   TaskIcon,
   UserCircleIcon,
   ChatIcon,
-  ShootingStarIcon,
-  // UserCircleIcon,
+  FolderIcon,
+  BoltIcon,
+  EyeIcon,
+  PencilIcon,
 } from "../icons/index";
 
 type NavItem = {
@@ -33,97 +28,72 @@ const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
     name: "Dashboard",
-    subItems: [{ name: "Monthly Users", path: "/" }],
-  },
-  {
-    icon: <UserCircleIcon />,
-    name: "Users",
-    path: "/profile",
-  },
-  {
-    icon: <TableIcon />,
-    name: "User CVs",
-    path: "/basic-tables",
-  },
-  {
-    icon: <ShootingStarIcon />,
-    name: "Taaruf Request",
-    path: "/avatars",
-  },
-  /*
-  {
-    icon: <CalenderIcon />,
-    name: "Calendar",
-    path: "/calendar",
-  },
-  {
-    icon: <UserCircleIcon />,
-    name: "User Profile",
-    path: "/profile",
-  },
-
-  {
-    name: "Forms",
-    icon: <ListIcon />,
-    subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
-  },
-  {
-    name: "Tables",
-    icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
-  },
-  {
-    name: "Pages",
-    icon: <PageIcon />,
     subItems: [
-      { name: "Blank Page", path: "/blank", pro: false },
-      { name: "404 Error", path: "/error-404", pro: false },
+      { name: "Analisis", path: "/" },
     ],
   },
-  */
+  {
+    icon: <FolderIcon />,
+    name: " CV Management",
+    subItems: [
+      { name: "CV List", path: "/basic-tables" },
+      { name: "Saved CVs", path: "/profile"},
+    ]
+  },
+  {
+    icon: <ChatIcon /> ,
+    name: "Taaruf Management",
+    subItems: [
+      { name: "Taaruf List", path: "/avatars" },
+      { name: "Taaruf Request", path: "/avatars" },
+    ]
+  },
+  {
+    icon: <TaskIcon /> ,
+    name: "Badges & Points",
+    subItems: [
+      { name: "Manage Badges", path: "/calendar" },
+      { name: "User Badges", path: "/avatars" },
+      { name: "Point Activity Logs", path: "/avatars" },
+      { name: "Point Transactions", path: "/avatars" },
+    ]
+  },
+  {
+    icon: <PencilIcon />,
+    name: "Feed Management",
+    subItems: [
+      { name: "Feed Posts", path: "/basic-tables" }
+    ]
+  },
+  {
+    icon: <BoltIcon /> ,
+    name: "Location & Regions",
+    subItems: [
+      { name: "Provinces", path: "/basic-tables" },
+      { name: "Cities", path: "/basic-tables" },
+      { name: "Districts", path: "/basic-tables" },
+      { name: "Villages", path: "/basic-tables" }
+    ]
+  },
+  {
+    icon: <EyeIcon /> ,
+    name: "Viewer Statistics",
+    subItems: [
+      { name: "Viewer History", path: "/basic-tables" },
+    ]
+  },
 ];
 
 const othersItems: NavItem[] = [
   {
-    icon: <TaskIcon />,
-    name: "Badge",
-    path: "/alerts",
-  },
-  {
-    icon: <ChatIcon />,
-    name: "Point Transaction",
-    path: "/line-chart",
-  },
-  /*
-  {
-    icon: <PieChartIcon />,
-    name: "Charts",
+    icon: <UserCircleIcon />,
+    name: "Management User",
     subItems: [
-      { name: "Line Chart", path: "/line-chart", pro: false },
-      { name: "Bar Chart", path: "/bar-chart", pro: false },
-    ],
+      { name: "User List", path: "/basic-tables" },
+      { name: "Notification Tokens", path: "/basic-tables" },
+      { name: "Sessions", path: "/basic-tables" }
+    ]
   },
-  {
-    icon: <BoxCubeIcon />,
-    name: "UI Elements",
-    subItems: [
-      { name: "Alerts", path: "/alerts", pro: false },
-      { name: "Avatar", path: "/avatars", pro: false },
-      { name: "Badge", path: "/badge", pro: false },
-      { name: "Buttons", path: "/buttons", pro: false },
-      { name: "Images", path: "/images", pro: false },
-      { name: "Videos", path: "/videos", pro: false },
-    ],
-  },
-  {
-    icon: <PlugInIcon />,
-    name: "Authentication",
-    subItems: [
-      { name: "Sign In", path: "/signin", pro: false },
-      { name: "Sign Up", path: "/signup", pro: false },
-    ],
-  },
-  */
 ];
 
 const AppSidebar: React.FC = () => {
