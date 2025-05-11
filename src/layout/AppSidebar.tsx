@@ -36,7 +36,7 @@ const navItems: NavItem[] = [
     icon: <FolderIcon />,
     name: " CV Management",
     subItems: [
-      { name: "CV List", path: "/basic-tables" },
+      { name: "CV List", path: "/cv-list" },
       { name: "Saved CVs", path: "/profile"},
     ]
   },
