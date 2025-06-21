@@ -2,7 +2,7 @@
 
 import ComponentCard from "@/components/common/ComponentCard";
 import PageBreadcrumb from "@/components/common/PageBreadCrumb";
-import TableCvList from "@/components/cv-list/TableCvList";
+import TableCvList from "@/components/user-cvs/TableCvList";
 import Pagination from "@/components/tables/Pagination";
 import { Metadata } from "next";
 import React, { useState } from "react";

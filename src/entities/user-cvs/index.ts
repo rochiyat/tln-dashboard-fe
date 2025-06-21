@@ -74,3 +74,26 @@ export interface UserCvsEntity {
 export interface CvViewProps {
   publicUid: string;
 }
+
+export interface UserMetaCardProps {
+  publicUid: string;
+  fotoBlurred: string;
+  name: string;
+  gender: string;
+  statusMenikah: string;
+}
+
+export interface UserCvsInfoCardProps {
+  displayName: string | null;
+  applyCount: number | null;
+  beratBadan: string | null;
+  celanaDiatasMataKaki: string | null;
+  ciriFisikCatatan: string | null;
+  ciriFisikJenggot: string | null;
+  ciriFisikJenisRambut: string | null;
+  ciriFisikPanjangRambut: string | null;
+  ciriFisikWajah: string | null;
+  ciriFisikWarnaKulit: string | null;
+  ciriFisikWarnaRambut: string | null;
+  ciriFisikByAdmin: string | null;
+}

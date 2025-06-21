@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     });
     return config;
   },
+  images: {
+    domains: ['firebasestorage.googleapis.com', 'lh3.googleusercontent.com', 'tln-dashboard-fe.appspot.com'],
+  },
 };
 
 export default nextConfig;

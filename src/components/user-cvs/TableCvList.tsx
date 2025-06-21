@@ -8,8 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { userCvsList, userCvsView } from "@/services/user-cvs";
-import { toast } from "react-toastify";
+import { userCvsList } from "@/services/user-cvs";
 import CvView from "./cv-view";
 
 interface Order {
@@ -69,7 +68,6 @@ export default function TableCvList({
 
   const handleView = async (publicUid: string) => {
     setPublicUid(publicUid);
-    console.log(publicUid);
   }
 
   return (
