@@ -52,13 +52,30 @@ const TableRow: React.FC<TableRowProps> = ({ children, className }) => {
 };
 
 // TableCell Component
+// const TableCell: React.FC<TableCellProps> = ({
+//   children,
+//   isHeader = false,
+//   className,
+// }) => {
+//   const CellTag = isHeader ? "th" : "td";
+//   return <CellTag className={` ${className}`}>{children}</CellTag>;
+// };
+
 const TableCell: React.FC<TableCellProps> = ({
   children,
   isHeader = false,
-  className,
+  className = "",
 }) => {
   const CellTag = isHeader ? "th" : "td";
-  return <CellTag className={` ${className}`}>{children}</CellTag>;
+
+  const defaultClass = isHeader
+    ? "px-5 py-3 text-left text-sm font-semibold text-gray-600 uppercase tracking-wider bg-gray-50 dark:bg-white/[0.05] dark:text-gray-300"
+    : "px-5 py-4 text-left text-sm text-gray-700 dark:text-gray-300";
+
+  // Gabungkan default class dengan class tambahan, dan trim spasi berlebih
+  const combinedClass = `${defaultClass} ${className}`.trim();
+
+  return <CellTag className={combinedClass}>{children}</CellTag>;
 };
 
 export { Table, TableHeader, TableBody, TableRow, TableCell };

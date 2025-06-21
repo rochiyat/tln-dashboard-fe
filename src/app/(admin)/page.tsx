@@ -11,8 +11,8 @@ import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title:
-    "Next.js E-commerce Dashboard | TailAdmin - Next.js Dashboard Template",
-  description: "This is Next.js Home for TailAdmin Dashboard Template",
+    "Admin TLN Dashboard",
+  description: "This is Home for Admin TLN Dashboard",
 };
 
 export default async function Home() {
