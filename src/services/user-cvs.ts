@@ -10,3 +10,13 @@ export const userCvsList = async (query: {limit: number; page: number, key: stri
     return { success: false, error: err?.message || "Failed to fetch user cvs" };
   }
 }
+
+export const userCvsView = async (query: {publicUid: string}) => {
+  try {
+    const response = await api.get(`/v1/user-cvs/${query.publicUid}`);
+    return { success: true, data: response?.data?.data };
+  } catch (error: unknown) {
+    const err = error as AxiosError;
+    return { success: false, error: err?.message || "Failed to fetch user cvs view" };
+  }
+}
