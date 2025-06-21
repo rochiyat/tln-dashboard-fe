@@ -10,6 +10,7 @@ import {
 } from "../ui/table";
 import { userCvsList } from "@/services/user-cvs";
 import CvView from "./cv-view";
+import SplitButton from "../ui/button/SplitButton";
 
 interface Order {
   id: number;
@@ -67,6 +68,14 @@ export default function TableCvList({
   }
 
   const handleView = async (publicUid: string) => {
+    setPublicUid(publicUid);
+  }
+
+  const handleEdit = async (publicUid: string) => {
+    setPublicUid(publicUid);
+  }
+
+  const handleDelete = async (publicUid: string) => {
     setPublicUid(publicUid);
   }
 
@@ -157,7 +166,11 @@ export default function TableCvList({
                     {order.publicUid}
                   </TableCell>
                   <TableCell className="px-4 py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                    <button className="text-brand-500" onClick={() => handleView(order.publicUid)}>View</button>
+                      <SplitButton
+                        handleView={() => handleView(order.publicUid)}
+                        handleEdit={() => handleEdit(order.publicUid)}
+                        handleDelete={() => handleDelete(order.publicUid)}
+                      />
                   </TableCell>
                 </TableRow>
               )))}

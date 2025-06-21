@@ -30,6 +30,7 @@ export default function CvList() {
   }
 
   const handleSearchTerm = (value: string) => {
+    setCurrentPage(1);
     setSearchTerm(value);
   }
 
