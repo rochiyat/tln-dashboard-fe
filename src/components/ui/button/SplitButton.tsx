@@ -1,22 +1,20 @@
 import { useState, useRef, useEffect } from "react";
 import { HiChevronDown } from "react-icons/hi";
-import { FiEdit, FiEye, FiTrash2 } from "react-icons/fi";
+import { FiEdit, FiEye } from "react-icons/fi";
 
 const SplitButton = ({
     handleView,
     handleEdit,
-    handleDelete,
 }: {
     handleView: () => void,
     handleEdit: () => void,
-    handleDelete: () => void }) => {
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   const actions = [
     { label: "View", icon: FiEye, onClick: handleView },
     { label: "Edit", icon: FiEdit, onClick: handleEdit },
-    { label: "Delete", icon: FiTrash2, onClick: handleDelete },
   ];
 
   useEffect(() => {

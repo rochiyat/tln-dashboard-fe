@@ -8,9 +8,9 @@ import { Metadata } from "next";
 import React, { useState } from "react";
 
 export const metadata: Metadata = {
-  title: "CV List",
+  title: "User CVs",
   description:
-    "This is Next.js Basic Table  page for TailAdmin  Tailwind CSS Admin Dashboard Template",
+    "This is the User CVs page",
 };
 
 
@@ -36,9 +36,9 @@ export default function CvList() {
 
   return (
     <div>
-      <PageBreadcrumb pageTitle="CV List" />
+      <PageBreadcrumb pageTitle="User CVs" />
       <div className="space-y-6">
-        <ComponentCard title="CV List">
+        <ComponentCard title="User CVs">
         {/* Form Pencarian */}
         <div className="mb-4 flex flex-wrap items-center gap-4">
             <input

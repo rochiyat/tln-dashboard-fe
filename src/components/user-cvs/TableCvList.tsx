@@ -9,7 +9,7 @@ import {
   TableRow,
 } from "../ui/table";
 import { userCvsList } from "@/services/user-cvs";
-import CvView from "./cv-view";
+import CvView from "./CvView";
 import SplitButton from "../ui/button/SplitButton";
 
 interface Order {
@@ -75,10 +75,6 @@ export default function TableCvList({
     setPublicUid(publicUid);
   }
 
-  const handleDelete = async (publicUid: string) => {
-    setPublicUid(publicUid);
-  }
-
   return (
     <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
       <div className="max-w-full overflow-x-auto">
@@ -139,12 +135,6 @@ export default function TableCvList({
                       <p className="text-sm">Try adjusting your search criteria</p>
                     </div>
                   </TableCell>
-                  <TableCell className="px-4 py-8">{""}</TableCell>
-                  <TableCell className="px-4 py-8">{""}</TableCell>
-                  <TableCell className="px-4 py-8">{""}</TableCell>
-                  <TableCell className="px-4 py-8">{""}</TableCell>
-                  <TableCell className="px-4 py-8">{""}</TableCell>
-                  <TableCell className="px-4 py-8">{""}</TableCell>
                 </TableRow>
               )}
               {tableData.length > 0 && (
@@ -169,7 +159,6 @@ export default function TableCvList({
                       <SplitButton
                         handleView={() => handleView(order.publicUid)}
                         handleEdit={() => handleEdit(order.publicUid)}
-                        handleDelete={() => handleDelete(order.publicUid)}
                       />
                   </TableCell>
                 </TableRow>
