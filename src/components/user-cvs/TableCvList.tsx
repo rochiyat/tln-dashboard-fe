@@ -29,10 +29,12 @@ export default function TableCvList({
   page,
   onTotalPagesChange,
   searchTerm,
+  onTotalItemsChange,
 }: {
   page: number;
   onTotalPagesChange: (total: number) => void;
   searchTerm: string;
+  onTotalItemsChange: (total: number) => void;
 }) {
 
   const [tableData, setTableData] = useState<Order[]>([]);
@@ -49,6 +51,8 @@ export default function TableCvList({
         setTableData(response.data.data);
         if (onTotalPagesChange) {
           onTotalPagesChange(Math.ceil(response.data.count / limit));
+          onTotalItemsChange(response.data.count);
+          console.log(response.data.count, "response.data.count");
         }
       } else {
         setError(response.error || 'Failed to fetch data');

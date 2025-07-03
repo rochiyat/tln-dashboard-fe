@@ -1,21 +1,29 @@
+import { formatNumber } from "@/helpers/utils.helper";
+
 type PaginationProps = {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
+  totalItems: number;
 };
 
 const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
   onPageChange,
+  totalItems,
 }) => {
   const pagesAroundCurrent = Array.from(
-    { length: Math.min(3, totalPages) },
-    (_, i) => i + Math.max(currentPage - 1, 1)
+    { length: Math.min(5, totalPages) },
+    (_, i) => i + Math.max(currentPage - 2, 1)
   );
 
   return (
-    <div className="flex items-center ">
+    <div className="flex items-center justify-between">
+      <div className="text-sm text-gray-500">
+        Halaman {formatNumber(currentPage)} dari {formatNumber(totalPages)} (Total {formatNumber(totalItems)} data)
+      </div>
+    <div className="flex items-center justify-end">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -47,6 +55,7 @@ const Pagination: React.FC<PaginationProps> = ({
       >
         Next
       </button>
+    </div>
     </div>
   );
 };

@@ -20,6 +20,7 @@ export default function CvList() {
   const [totalPages, setTotalPages] = useState(Number(1));
   const [searchTerm, setSearchTerm] = useState("");
   const [key, setKey] = useState("");
+  const [totalItems, setTotalItems] = useState(Number(0));
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -34,13 +35,17 @@ export default function CvList() {
     setSearchTerm(value);
   }
 
+  const onTotalItemsChange = (total: number) => {
+    setTotalItems(total);
+  }
+
   return (
     <div>
       <PageBreadcrumb pageTitle="User CVs" />
       <div className="space-y-6">
         <ComponentCard title="User CVs">
         {/* Form Pencarian */}
-        <div className="mb-4 flex flex-wrap items-center gap-4">
+        <div className="mb-4 flex flex-wrap items-center gap-4 justify-end">
             <input
               type="text"
               placeholder="Cari nama & public uuid..."
@@ -59,11 +64,13 @@ export default function CvList() {
           page={currentPage}
           onTotalPagesChange={onTotalPagesChange}
           searchTerm={searchTerm}
-        />
+          onTotalItemsChange={onTotalItemsChange}
+          />
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
+          totalItems={totalItems}
         />
         </ComponentCard>
       </div>
