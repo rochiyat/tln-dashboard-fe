@@ -11,6 +11,7 @@ import {
 import { userCvsList } from "@/services/user-cvs";
 import CvView from "./CvView";
 import SplitButton from "../ui/button/SplitButton";
+import CvEdit from "./CvEdit";
 
 interface Order {
   id: number;
@@ -41,6 +42,8 @@ export default function TableCvList({
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [publicUid, setPublicUid] = useState<string | null>("");
+  const [isViewOpen, setIsViewOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -73,10 +76,12 @@ export default function TableCvList({
 
   const handleView = async (publicUid: string) => {
     setPublicUid(publicUid);
+    setIsViewOpen(true);
   }
 
   const handleEdit = async (publicUid: string) => {
     setPublicUid(publicUid);
+    setIsEditOpen(true);
   }
 
   return (
@@ -172,9 +177,12 @@ export default function TableCvList({
         </div>
       </div>
       {/* Tampilkan modal jika publicUid di-set */}
-      {publicUid && <CvView 
-      publicUid={publicUid} 
-      onClose={() => setPublicUid(null)}/>}
+      {isViewOpen && <CvView 
+      publicUid={publicUid || ""} 
+      onClose={() => setIsViewOpen(false)}/>}
+      {isEditOpen && <CvEdit
+      publicUid={publicUid || ""} 
+      onClose={() => setIsEditOpen(false)}/>}
     </div>
   );
 }

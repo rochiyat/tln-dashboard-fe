@@ -22,7 +22,6 @@ const CvView = ({ publicUid, onClose }: CvViewProps & { onClose: () => void }) =
                 setIsLoading(false);
                 toast.error(response.error || 'Failed to fetch data');
             }
-            console.log('cv', 'cv');
         }
         fetchCv();
     }, [publicUid]);
@@ -35,13 +34,13 @@ const CvView = ({ publicUid, onClose }: CvViewProps & { onClose: () => void }) =
                     <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900 dark:border-white"></div>
                 </div>
             ) : (
-                <div className="flex flex-col px-2 overflow-y-auto custom-scrollbar scrollbar-thin">
+                <div className="flex flex-col px-2 overflow-y-auto custom-scrollbar scrollbar-thin max-h-[700px]">
                     <UserCvsMetaCard
                         publicUid={publicUid}
                         name={cv?.nama || "N/A"}
                         gender={cv?.gender || "N/A"}
                         statusMenikah={cv?.statusMenikah || "N/A"}
-                        fotoBlurred={cv?.fotoBlurred || "/images/user/owner.jpg"}
+                        fotoBlurred={"/images/user/owner.jpg"}
                     />
                     <div className="flex flex-col gap-2 mt-4">
                     <UserCvsInfoCard

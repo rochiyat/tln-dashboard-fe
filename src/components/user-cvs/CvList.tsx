@@ -43,7 +43,7 @@ export default function CvList() {
     <div>
       <PageBreadcrumb pageTitle="User CVs" />
       <div className="space-y-6">
-        <ComponentCard title="User CVs">
+        <ComponentCard title="">
         {/* Form Pencarian */}
         <div className="mb-4 flex flex-wrap items-center gap-4 justify-end">
             <input
